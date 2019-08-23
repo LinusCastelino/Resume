@@ -64,11 +64,7 @@
 \newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
 \newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
 \newcommand{\Education}[1]{\renewcommand{\Education}{#1}}
-% \newcommand{\skills}[1]{\renewcommand{\skills}{#1}}
 \newcommand{\workexp}[1]{\renewcommand{\workexp}{#1}}
-% \newcommand{\ExtraCurricular}[1]{\renewcommand{\ExtraCurricular}{#1}}
-
-% \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
 
 % Command for printing the contact information icons
@@ -98,21 +94,18 @@
 			\ifthenelse{\equal{\cvlinkedin}{}}{}{\textsc{\Large\icon{\faLinkedin}} & \href{https://www.\cvlinkedin}{\cvlinkedin}\\}
 			\ifthenelse{\equal{\cvgithub}{}}{}{\textsc{\Large\icon{\faGithub}} & \href{https://\cvgithub}{\cvgithub}\\}
 		\end{tabular}
-
-		%------------------------------------------------
-		
-		\ifthenelse{\equal{\Education}{}}{}{
-			\profilesection{Education}
-			\begin{flushleft}
-				\Education
-			\end{flushleft}
-		}
-		
 		
 		\ifthenelse{\equal{\workexp}{}}{}{
 			\profilesection{Work Experience}
 			\begin{flushleft}
 				\workexp
+			\end{flushleft}
+		}
+		
+		\ifthenelse{\equal{\Education}{}}{}{
+			\profilesection{Education}
+			\begin{flushleft}
+				\Education
 			\end{flushleft}
 		}
 			
@@ -144,14 +137,17 @@
 	}\\
 }
 
-\newcommand{\project}[5]{%
-	\parbox[t]{\textwidth}{%
-		\textbf{#1}%
-		\hfill%
+\newcommand{\project}[7]{
+	\parbox[t]{\textwidth}{
+		\textbf{#1}
+		\hfill
 		#2\\
-		Role: #3\\%
-		#4
-		\ifthenelse{\equal{#5}{}}{}{\\Project link: \href{#5}{#5}} \vspace{3mm}
+		\textbf{\normalsize{Organization:}} #3\\
+		\textbf{\normalsize{Role:}} #4\\
+		\textbf{\normalsize{Description:}} #5
+		\ifthenelse{\equal{#6}{}}{}{\\ \textbf{\normalsize{Notable Contributions: }}{#6}}
+		\ifthenelse{\equal{#7}{}}{}{\\ \textbf{\normalsize{Project link:}} \href{#7}{#7}} 
+		\vspace{3mm}
 	}\\
 }
 
